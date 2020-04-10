@@ -1,4 +1,4 @@
-package action.juc;
+package com.juc;
 
 /**
  * @ProjectName: demo01

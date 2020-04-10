@@ -19,7 +19,7 @@ public class DaemoThreadDemo {
     * 由于同属一个线程组中还有active线程，或者jvisualvm看到还有Monitor Ctrl-Break  Finalizer 等等
     * 如果t线程设置为daemon，则main结束，t也将消失
     * */
-    public static void main(String[] args) throws InterruptedException {
+    /*public static void main(String[] args) throws InterruptedException {
         Thread t = new Thread(
                 ()->{
                     try {
@@ -31,9 +31,36 @@ public class DaemoThreadDemo {
                     }
                 }
         );
-        t.setDaemon(true);//b必须在启动前设置
+        t.setDaemon(true);//b必须在启动前设置 否则报Exception in thread "Thread-0" java.lang.IllegalThreadStateException
         t.start();
         Thread.sleep(10_000);//jdk1.7的写法
         System.out.println(Thread.currentThread().getName());
+    }*/
+    public static void main(String[] args) {
+        Thread t = new Thread( ()->{
+                Thread innerThread = new Thread(()->{
+                    try {
+                        while (true){
+                            System.out.println("inner running ");
+                            Thread.sleep(1_000);
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                });
+                innerThread.setDaemon(true);
+                innerThread.start();
+            try {
+                Thread.sleep(10_000);
+                System.out.println("T thread done ");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+        );
+        //t.setDaemon(true);
+        t.start();
     }
+
 }

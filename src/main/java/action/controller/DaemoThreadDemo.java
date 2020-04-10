@@ -1,5 +1,7 @@
 package action.controller;
 
+import java.util.Optional;
+
 /**
  * @ProjectName: demo01
  * @Package: action.controller
@@ -61,6 +63,11 @@ public class DaemoThreadDemo {
         );
         //t.setDaemon(true);
         t.start();
+        t.setPriority(Thread.MAX_PRIORITY);
+        Optional.of("hello").ifPresent(System.out::println);
+        Optional.of(t.getName()).ifPresent(System.out::println);
+        Optional.of(t.getId()).ifPresent(System.out::println);
+        //System.out.println(t.getId()+"\n"+t.getPriority()+"\n"+t.getContextClassLoader());
     }
 
 }

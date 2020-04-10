@@ -1,6 +1,11 @@
 package action.controller;
 
+import lombok.val;
+
 import java.util.Arrays;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @ProjectName: demo01
@@ -37,5 +42,27 @@ public class ThreadSourceDemo {
         threadGroup.enumerate(threads);
         Arrays.asList(threads).forEach(System.out::println);
         Arrays.asList(threads).forEach(i-> System.out.println(i));
+        System.out.println("----------华丽分割线----------");
+        /*
+        *通过线程组模拟实现线程池
+        * group中的线程并没有因为线程池启动了这个线程任务而运行起来.
+        * 因此通过线程组来对线程池中的线层任务分组不可行.
+         * */
+        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newCachedThreadPool();
+        final ThreadGroup  group = new ThreadGroup("Main_Group");
+        for(int i=0;i<5;i++){
+            Thread t = new Thread(group,()->{
+                int sleep = (int)(Math.random() * 10);
+                try {
+                    Thread.sleep(1000 * 3);
+                    System.out.println(Thread.currentThread().getName()+"执行完毕");
+                    System.out.println("当前线程组中的运行线程数"+group.activeCount());//会一直是0
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            },group.getName()+"$$"+i+"");
+            executor.execute(t);
+        }
     }
+
 }

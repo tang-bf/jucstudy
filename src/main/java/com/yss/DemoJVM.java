@@ -7,11 +7,11 @@ package com.yss;
  * @ClassName: DemoJVM
  * @Description: 理解jvm相关知识,
  * 结合javap 查看字节码指令，jclasslib查看栈帧中局部变量表等信息
- * @Author: 汤本辉
+ * @Author: tbf
  * @CreateDate: 2020-04-11 12:36
  * @UpdateUser: Administrator
  * @UpdateDate: 2020-04-11 12:36
- * @UpdateRemark: 更新说明
+ * @UpdateRemark:
  * @Version: 1.0
  */
 

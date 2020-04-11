@@ -7,12 +7,12 @@ import java.util.stream.IntStream;
  * @ProjectName: demo01
  * @Package: com.yss
  * @ClassName: ThreadJoinDemo
- * @Description: java类作用描述
- * @Author: 汤本辉
+ * @Description:
+ * @Author: tbf
  * @CreateDate: 2020-04-11 3:02
  * @UpdateUser: Administrator
  * @UpdateDate: 2020-04-11 3:02
- * @UpdateRemark: 更新说明
+ * @UpdateRemark:
  * @Version: 1.0
  */
 

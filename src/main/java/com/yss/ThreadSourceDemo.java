@@ -8,12 +8,12 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @ProjectName: demo01
  * @Package: action.controller
  * @ClassName: ThreadSourceDemo
- * @Description: java类作用描述
- * @Author: 汤本辉
+ * @Description:
+ * @Author: tbf
  * @CreateDate: 2020-04-11 0:13
  * @UpdateUser: Administrator
  * @UpdateDate: 2020-04-11 0:13
- * @UpdateRemark: 更新说明
+ * @UpdateRemark:
  * @Version: 1.0
  */
 

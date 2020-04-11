@@ -28,6 +28,7 @@ public class ThreadServiceTest {
                 e.printStackTrace();
             }
         });
+
         service.shutDown(1000);
         Long end = System.currentTimeMillis();
         System.out.println(end-start);
